@@ -31,15 +31,7 @@ settings.preselectedCorpora = ["dickens"];
 settings.corpora["dickens"] = {
     id: "dickens",
     title: "Dickens Test Corpus",
-    description: "an English test corpus",
-    within: spWithin,
-    context: spContext,
-    attributes: modernAttrs,
-    structAttributes: {
-        text_author: {label: "author"},
-        text_title: {label: "title"},
-        text_date: {label: "date"}
-    }
+    description: "an English test corpus"
 };
 
 
