@@ -56,13 +56,5 @@ settings.corpora["wolfart_ahenakew"] = {
         }
 };
 
-settings.corpora["dickens"] = {
-    id: "dickens",
-    title: "Dickens Test Corpus",
-    description: "an English test corpus"
-};
-
-
-
 
 settings.corpusListing = new CorpusListing(settings.corpora);
