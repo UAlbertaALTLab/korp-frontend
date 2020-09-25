@@ -9,7 +9,7 @@ settings.enableBackendKwicDownload = false
 settings.enableFrontendKwicDownload = true
 
 settings.languages = ["sv", "en"];
-settings.defaultLanguage = "sv";
+settings.defaultLanguage = "en";
 
 settings.downloadFormats = [
     "csv",
