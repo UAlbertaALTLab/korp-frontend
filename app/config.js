@@ -144,7 +144,7 @@ settings.defaultOptions = {
     "matches_not": "!*=",
 }
 
-settings.korpBackendURL = "http://127.0.0.1:1234";
+settings.korpBackendURL = "https://korp-backend.altlab.dev";
 settings.downloadCgiScript = "https://ws.spraakbanken.gu.se/ws/korp/download";
 
 settings.mapCenter = {
