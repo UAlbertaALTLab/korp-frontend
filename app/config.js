@@ -144,7 +144,16 @@ settings.defaultOptions = {
     "matches_not": "!*=",
 }
 
-settings.korpBackendURL = "https://korp-backend.altlab.dev";
+
+if (process.env.NODE_ENV === "development"){
+    settings.korpBackendURL = "http://localhost:1234";
+
+}else{
+
+    settings.korpBackendURL = "https://korp-backend.altlab.dev";
+}
+
+
 settings.downloadCgiScript = "https://ws.spraakbanken.gu.se/ws/korp/download";
 
 settings.mapCenter = {
