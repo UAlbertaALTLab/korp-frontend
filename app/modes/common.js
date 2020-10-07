@@ -116,6 +116,12 @@ attrs.baseform = {
     extendedTemplate: "<input ng-model='input' escaper>",
     order: 1
 };
+attrs.gloss = {
+    label: "gloss",
+    type: "set",
+    opts: extendedSetOptions,
+    order: 2
+}
 attrs.lemgram = {
     label: "lemgram",
     type: "set",
@@ -162,6 +168,14 @@ attrs.saldo = {
     extendedTemplate: settings.senseAutoComplete,
     order: 3
 };
+
+attrs.dep = {
+    label: "dep",
+    type: "set",
+    opts: extendedSetOptions,
+    order: 3
+}
+
 attrs.dephead = {
     label: "dephead",
     displayType: "hidden"
