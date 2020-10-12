@@ -46,7 +46,7 @@ settings.corpora["wolfart_ahenakew"] = {
                 lemma : attrs.baseform,
                 dep : attrs.dep,
         },
-        struct_attributes : {
+        structAttributes : {
                 text_author : {label : "author"},
                 text_title : {label : "title"},
                 text_title1 : {label : "text_title1"},
@@ -54,6 +54,9 @@ settings.corpora["wolfart_ahenakew"] = {
                 text_lang : {label : "lang"},
                 /* text_url : {label : "url"}, */
         }
+
+
+
 };
 
 
