@@ -2,6 +2,7 @@
 
 import jStorage from "../lib/jstorage"
 import { kwicPagerName, kwicPager } from "./components/pager"
+import { sidebarName, sidebarComponent } from "./components/sidebar"
 import { setDefaultConfigValues } from "./settings.js"
 
 setDefaultConfigValues()
@@ -31,6 +32,7 @@ window.korpApp = angular.module("korpApp", [
     "ui.bootstrap.buttons",
     "ui.bootstrap.popover",
     "uib/template/popover/popover.html",
+    "uib/template/popover/popover-template.html",
     "angularSpinner",
     "ui.sortable",
     "newsdesk",
@@ -39,7 +41,7 @@ window.korpApp = angular.module("korpApp", [
     "angular.filter",
 ])
 
-korpApp.component(kwicPagerName, kwicPager)
+korpApp.component(kwicPagerName, kwicPager).component(sidebarName, sidebarComponent)
 
 korpApp.config((tmhDynamicLocaleProvider) =>
     tmhDynamicLocaleProvider.localeLocationPattern("translations/angular-locale_{{locale}}.js")
@@ -66,7 +68,7 @@ korpApp.run(function ($rootScope, $location, searches, tmhDynamicLocale, $q, $ti
     s.word_selected = null
     s.isLab = window.isLab
 
-    s.sidebar_visible = false
+    // s.sidebar_visible = false
 
     s.extendedCQP = null
 
