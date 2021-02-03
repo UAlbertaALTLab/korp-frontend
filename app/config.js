@@ -19,32 +19,32 @@ settings.downloadFormats = [
 
 settings.downloadFormatParams = {
   "*": {
-    structs: `+`
+    structs: `+`,
   },
   ref: {
-    format: `bibref,xls`
+    format: `bibref,xls`,
   },
   csvp: {
     format:       `tokens,csv`,
     attrs:        `+,-lex`,
-    match_marker: `***`
+    match_marker: `***`,
   },
   csv: {
-    format: `sentences,csv`
+    format: `sentences,csv`,
   },
   annot: {
     format:       `tokens,xls`,
     attrs:        `+,-lex`,
-    match_marker: `***`
+    match_marker: `***`,
   },
   nooj: {
-    attrs: `+`
+    attrs: `+`,
   },
   tsv: {
-    format: `sentences,tsv`
+    format: `sentences,tsv`,
   },
   vrt: {
-    attrs: `+`
+    attrs: `+`,
   },
 };
 
@@ -76,7 +76,7 @@ settings.wordpictureTagset = {
   preposition_rel: `pa`,
   pre_modifier:    `at`,
   post_modifier:   `et`,
-  adverbial2:      `aa`
+  adverbial2:      `aa`,
 };
 
 
@@ -85,7 +85,7 @@ settings.wordPictureConf = {
     { rel: `subject`, css_class: `color_blue` },
     `_`,
     { rel: `object`, css_class: `color_purple` },
-    { rel: `adverbial`, css_class: `color_green` }
+    { rel: `adverbial`, css_class: `color_green` },
   ]],
   noun: [
     [{ rel: `preposition_rel`, css_class: `color_yellow`, field_reverse: true },
@@ -94,17 +94,17 @@ settings.wordPictureConf = {
       { rel: `post_modifier`, css_class: `color_red` }],
 
     [`_`, { rel: `subject`, css_class: `color_blue`, field_reverse: true, alt_label: `vb` }],
-    [{ rel: `object`, css_class: `color_purple`, field_reverse: true, alt_label: `vb` }, `_`]
+    [{ rel: `object`, css_class: `color_purple`, field_reverse: true, alt_label: `vb` }, `_`],
   ],
   adjective: [
     [`_`, { rel: `pre_modifier`, css_class: `color_yellow`, field_reverse: true }],
-    [{ rel: `adverbial2`, css_class: `color_purple` }, `_`]
+    [{ rel: `adverbial2`, css_class: `color_purple` }, `_`],
   ],
   adverb: [
     [`_`, { rel: `adverbial`, css_class: `color_yellow`, field_reverse: true }],
-    [`_`, { rel: `adverbial2`, css_class: `color_purple`, field_reverse: true }]
+    [`_`, { rel: `adverbial2`, css_class: `color_purple`, field_reverse: true }],
   ],
-  preposition: [[`_`, { rel: `preposition_rel`, css_class: `color_green` }]]
+  preposition: [[`_`, { rel: `preposition_rel`, css_class: `color_green` }]],
 
 };
 
@@ -112,12 +112,12 @@ settings.visibleModes = 6;
 settings.modeConfig = [
   {
     localekey: `modern_texts`,
-    mode:      `default`
+    mode:      `default`,
   },
   {
     localekey: `parallel_texts`,
-    mode:      `parallel`
-  }
+    mode:      `parallel`,
+  },
 ];
 
 settings.primaryColor = `rgb(221, 233, 255)`;
@@ -127,7 +127,7 @@ settings.defaultOverviewContext = `1 sentence`;
 settings.defaultReadingContext  = `1 paragraph`;
 
 settings.defaultWithin = {
-  sentence: `sentence`
+  sentence: `sentence`,
 };
 
 // for optimization purposes
@@ -143,18 +143,13 @@ settings.defaultOptions = {
   matches_not: `!*=`,
 };
 
-if (process.env.NODE_ENV === `development`) {
-  settings.korpBackendURL = `http://localhost:1234`;
-}else{
-  settings.korpBackendURL = `https://korp-backend.altlab.dev`;
-}
-
+settings.korpBackendURL    = `https://korp-backend.altlab.dev`;
 settings.downloadCgiScript = `https://ws.spraakbanken.gu.se/ws/korp/download`;
 
 settings.mapCenter = {
   lat:  62.99515845212052,
   lng:  16.69921875,
-  zoom: 4
+  zoom: 4,
 };
 
 settings.readingModeField = `sentence_id`;

@@ -1,4 +1,3 @@
-
 const $       = require(`jquery`);
 window.jQuery = $;
 window.$      = $;
@@ -83,7 +82,7 @@ require(`./lib/jquery.tooltip.pack.js`);
 
 window.settings = {};
 settings.markup = {
-  msd: require(`./markup/msd.html`)
+  msd: require(`./markup/msd.html`),
 };
 require(`configjs`);
 const commonSettings = require(`commonjs`);
