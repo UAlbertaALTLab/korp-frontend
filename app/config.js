@@ -1,4 +1,4 @@
-var isLab = window.isLab || false;
+const isLab = window.isLab || false;
 
 settings.autocomplete               = true;
 settings.newMapEnabled              = isLab;
