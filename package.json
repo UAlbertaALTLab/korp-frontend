@@ -84,17 +84,15 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "actions-test": "yarn run test:karma && yarn run test:e2e",
-    "build":        "NODE_ENV=production webpack --config webpack.prod.js",
-    "dev":          "webpack-dev-server --config webpack.dev.js",
-    "lint":         "tslint --project tslint.json",
-    "posttest":     "kill $(lsof -t -i:9112)",
-    "pretest:e2e":  "yarn run testserver && node_modules/protractor/bin/webdriver-manager update --standalone chrome --gecko false && wait-on --delay 500 --interval 500 http://localhost:9112",
-    "start:dist":   "http-server -p ${KORP_PORT:-9111} dist/",
-    "start":        "webpack-dev-server --config webpack.dev.js",
-    "test:e2e":     "node_modules/protractor/bin/protractor --browser chrome test/e2e/conf_e2e.js",
-    "test:karma":   "karma start test/karma/karma.conf.js",
-    "test":         "yarn run test:karma && yarn run test:e2e",
-    "testserver":   "webpack-dev-server --config webpack.dev.js --port 9112 &"
+    "build":       "webpack",
+    "dev":         "webpack-dev-server --config webpack.dev.js",
+    "lint":        "tslint --project tslint.json",
+    "posttest":    "kill $(lsof -t -i:9112)",
+    "pretest:e2e": "yarn run test:server && node_modules/protractor/bin/webdriver-manager update --standalone chrome --gecko false && wait-on --delay 500 --interval 500 http://localhost:9112",
+    "start":       "http-server -p 9111 dist/",
+    "test:e2e":    "node_modules/protractor/bin/protractor --browser chrome test/e2e/conf_e2e.js",
+    "test:karma":  "karma start test/karma/karma.conf.js",
+    "test:server": "webpack-dev-server --config webpack.dev.js --port 9112 &",
+    "test":        "yarn run test:karma && yarn run test:e2e"
   }
 }

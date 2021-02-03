@@ -1,4 +1,3 @@
-
 var isLab = window.isLab || false;
 
 settings.autocomplete               = true;
@@ -8,158 +7,154 @@ settings.hitsPerPageValues          = [25,50,75,100,500,1000];
 settings.enableBackendKwicDownload  = false;
 settings.enableFrontendKwicDownload = true;
 
-settings.languages       = ["en"];
-settings.defaultLanguage = "en";
+settings.languages       = [`sv`, `en`];
+settings.defaultLanguage = `en`;
 
 settings.downloadFormats = [
-  "csv",
-  "tsv",
-  "annot",
-  "ref",
+  `csv`,
+  `tsv`,
+  `annot`,
+  `ref`,
 ];
 
 settings.downloadFormatParams = {
   "*": {
-    structs: "+"
+    structs: `+`
   },
   ref: {
-    format: "bibref,xls"
+    format: `bibref,xls`
   },
   csvp: {
-    format: "tokens,csv",
-    attrs: "+,-lex",
-    match_marker: "***"
+    format:       `tokens,csv`,
+    attrs:        `+,-lex`,
+    match_marker: `***`
   },
   csv: {
-    format: "sentences,csv"
+    format: `sentences,csv`
   },
   annot: {
-    format: "tokens,xls",
-    attrs: "+,-lex",
-    match_marker: "***"
+    format:       `tokens,xls`,
+    attrs:        `+,-lex`,
+    match_marker: `***`
   },
   nooj: {
-    attrs: "+"
+    attrs: `+`
   },
   tsv: {
-    format: "sentences,tsv"
+    format: `sentences,tsv`
   },
   vrt: {
-    attrs: "+"
+    attrs: `+`
   },
 };
 
 // for extended search dropdown, can be 'union' or 'intersection'
-settings.wordAttributeSelector = "union";
-settings.structAttributeSelector = "union";
+settings.wordAttributeSelector = `union`;
+settings.structAttributeSelector = `union`;
 
 // for 'compile statistics by' selector, can be 'union' or 'intersection'
-settings.reduceWordAttributeSelector = "intersection";
-settings.reduceStructAttributeSelector = "intersection";
+settings.reduceWordAttributeSelector = `intersection`;
+settings.reduceStructAttributeSelector = `intersection`;
 
-settings.filterSelection = "intersection";
+settings.filterSelection = `intersection`;
 
-settings.newsDeskUrl = "https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json";
+settings.newsDeskUrl = `https://svn.spraakdata.gu.se/sb-arkiv/pub/component_news/json/korpnews.json`;
 
 settings.wordpictureTagset = {
   // supported pos-tags
-  verb: "vb",
+  verb: `vb`,
 
-  noun: "nn",
-  adjective: "jj",
-  adverb: "ab",
-  preposition: "pp",
+  noun:        `nn`,
+  adjective:   `jj`,
+  adverb:      `ab`,
+  preposition: `pp`,
 
   // dependency releations
-  subject: "ss",
-  object: "obj",
-  adverbial: "adv",
-  preposition_rel: "pa",
-  pre_modifier: "at",
-  post_modifier: "et",
-  adverbial2: "aa"
+  subject:         `ss`,
+  object:          `obj`,
+  adverbial:       `adv`,
+  preposition_rel: `pa`,
+  pre_modifier:    `at`,
+  post_modifier:   `et`,
+  adverbial2:      `aa`
 };
 
 
 settings.wordPictureConf = {
   verb: [[
-    { rel: "subject", css_class: "color_blue" },
-    "_",
-    { rel: "object", css_class: "color_purple" },
-    { rel: "adverbial", css_class: "color_green" }
+    { rel: `subject`, css_class: `color_blue` },
+    `_`,
+    { rel: `object`, css_class: `color_purple` },
+    { rel: `adverbial`, css_class: `color_green` }
   ]],
   noun: [
-    [{ rel: "preposition_rel", css_class: "color_yellow", field_reverse: true },
-      { rel: "pre_modifier", css_class: "color_azure" },
-      "_",
-      { rel: "post_modifier", css_class: "color_red" }],
+    [{ rel: `preposition_rel`, css_class: `color_yellow`, field_reverse: true },
+      { rel: `pre_modifier`, css_class: `color_azure` },
+      `_`,
+      { rel: `post_modifier`, css_class: `color_red` }],
 
-    ["_", { rel: "subject", css_class: "color_blue", field_reverse: true, alt_label: "vb" }],
-    [{ rel: "object", css_class: "color_purple", field_reverse: true, alt_label: "vb" }, "_"]
+    [`_`, { rel: `subject`, css_class: `color_blue`, field_reverse: true, alt_label: `vb` }],
+    [{ rel: `object`, css_class: `color_purple`, field_reverse: true, alt_label: `vb` }, `_`]
   ],
   adjective: [
-    ["_", { rel: "pre_modifier", css_class: "color_yellow", field_reverse: true }],
-    [{ rel: "adverbial2", css_class: "color_purple" }, "_"]
+    [`_`, { rel: `pre_modifier`, css_class: `color_yellow`, field_reverse: true }],
+    [{ rel: `adverbial2`, css_class: `color_purple` }, `_`]
   ],
   adverb: [
-    ["_", { rel: "adverbial", css_class: "color_yellow", field_reverse: true }],
-    ["_", { rel: "adverbial2", css_class: "color_purple", field_reverse: true }]
+    [`_`, { rel: `adverbial`, css_class: `color_yellow`, field_reverse: true }],
+    [`_`, { rel: `adverbial2`, css_class: `color_purple`, field_reverse: true }]
   ],
-  preposition: [["_", { rel: "preposition_rel", css_class: "color_green" }]]
+  preposition: [[`_`, { rel: `preposition_rel`, css_class: `color_green` }]]
 
 };
 
 settings.visibleModes = 6;
 settings.modeConfig = [
   {
-    localekey: "modern_texts",
-    mode: "default"
+    localekey: `modern_texts`,
+    mode:      `default`
   },
   {
-    localekey: "parallel_texts",
-    mode: "parallel"
+    localekey: `parallel_texts`,
+    mode:      `parallel`
   }
 ];
 
-settings.primaryColor = "rgb(221, 233, 255)";
-settings.primaryLight = "rgb(242, 247, 255)";
+settings.primaryColor = `rgb(221, 233, 255)`;
+settings.primaryLight = `rgb(242, 247, 255)`;
 
-settings.defaultOverviewContext = "1 sentence";
-settings.defaultReadingContext = "1 paragraph";
+settings.defaultOverviewContext = `1 sentence`;
+settings.defaultReadingContext  = `1 paragraph`;
 
 settings.defaultWithin = {
-  sentence: "sentence"
+  sentence: `sentence`
 };
 
 // for optimization purposes
-settings.cqpPrio = ['deprel', 'pos', 'msd', 'suffix', 'prefix', 'grundform', 'lemgram', 'saldo', 'word'];
+settings.cqpPrio = [`deprel`, `pos`, `msd`, `suffix`, `prefix`, `grundform`, `lemgram`, `saldo`, `word`];
 
 settings.defaultOptions = {
-  is: "=",
-  is_not: "!=",
-  starts_with: "^=",
-  contains: "_=",
-  ends_with: "&=",
-  matches: "*=",
-  matches_not: "!*=",
+  is:          `=`,
+  is_not:      `!=`,
+  starts_with: `^=`,
+  contains:    `_=`,
+  ends_with:   `&=`,
+  matches:     `*=`,
+  matches_not: `!*=`,
 };
 
-
-if (process.env.NODE_ENV === "development") {
-  settings.korpBackendURL = "http://localhost:1234";
-
+if (process.env.NODE_ENV === `development`) {
+  settings.korpBackendURL = `http://localhost:1234`;
 }else{
-
-  settings.korpBackendURL = "https://korp-backend.altlab.dev";
+  settings.korpBackendURL = `https://korp-backend.altlab.dev`;
 }
 
-
-settings.downloadCgiScript = "https://ws.spraakbanken.gu.se/ws/korp/download";
+settings.downloadCgiScript = `https://ws.spraakbanken.gu.se/ws/korp/download`;
 
 settings.mapCenter = {
-  lat: 62.99515845212052,
-  lng: 16.69921875,
+  lat:  62.99515845212052,
+  lng:  16.69921875,
   zoom: 4
 };
 
-settings.readingModeField = "sentence_id";
+settings.readingModeField = `sentence_id`;
