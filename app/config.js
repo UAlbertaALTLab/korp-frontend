@@ -130,6 +130,11 @@ settings.defaultWithin = {
   sentence: `sentence`,
 };
 
+settings.spContext = {
+  "1 sentence":  `1 sentence`,
+  "1 paragraph": `1 paragraph`,
+};
+
 // for optimization purposes
 settings.cqpPrio = [`deprel`, `pos`, `msd`, `suffix`, `prefix`, `grundform`, `lemgram`, `saldo`, `word`];
 
