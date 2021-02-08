@@ -6,10 +6,12 @@ var liteOptions = {
   is:     `=`,
   is_not: `!=`,
 };
+
 var setOptions = {
   is:     `contains`,
   is_not: `not contains`,
 };
+
 var probabilitySetOptions = {
   is:           `highest_rank`,
   is_not:       `not_highest_rank`,
@@ -35,12 +37,13 @@ var spContext = {
   "1 sentence":  `1 sentence`,
   "1 paragraph": `1 paragraph`,
 };
+
 var spWithin = {
   sentence:  `sentence`,
   paragraph: `paragraph`,
 };
 
-var attrs = {};  // positional attributes
+var attrs  = {}; // positional attributes
 var sattrs = {}; // structural attributes
 
 attrs.pos = {

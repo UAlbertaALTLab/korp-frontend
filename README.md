@@ -18,8 +18,8 @@ Korp is developed by [Språkbanken](https://spraakbanken.gu.se) at the Universit
   - build a dist version: set `NODE_ENV=production`, then `yarn build`
 
 1. Running Korp
-  - run dev server: `yarn dev`
-  - run dist server: `yarn start`
+  - run dev server: `yarn start:dev` or `yarn dev`
+  - run dist server: `yarn start:dist` or `yarn start`
 
 1. Running tests
   - run tests: `yarn test` or `yarn test:karma` or `yarn test:e2e`
