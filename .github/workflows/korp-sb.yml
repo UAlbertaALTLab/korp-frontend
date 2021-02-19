@@ -5,7 +5,7 @@ name: Korp with SB config
 
 on:
   push:
-    branches: 
+    branches:
       - "**"
   pull_request:
     branches: [ dev, master ]
@@ -42,5 +42,5 @@ jobs:
         cd ../korp-frontend
         yarn --frozen-lockfile
         echo '{"configDir": "../korp-frontend-sb/app"}' > run_config.json
-        yarn actions-test
+        yarn test
         echo "exited tests with code $?"
