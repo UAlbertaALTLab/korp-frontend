@@ -2,7 +2,7 @@ name: deploy-prod
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   trigger_deployment:
     name:    Trigger deployment

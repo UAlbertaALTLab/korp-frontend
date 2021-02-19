@@ -4,7 +4,7 @@ Korp is developed by [Språkbanken](https://spraakbanken.gu.se) at the Universit
 
 # Documentation:
 
-- [Frontend documentation](../master/doc/frontend_devel.md)
+- [Frontend documentation](../main/doc/frontend_devel.md)
 - [Backend documentation](https://github.com/spraakbanken/korp-backend/)
 
 # Getting started
