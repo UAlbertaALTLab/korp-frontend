@@ -4,6 +4,7 @@
 name: Korp with SB config
 
 on:
+  workflow_dispatch
   # push:
   #   branches:
   #     - "**"
