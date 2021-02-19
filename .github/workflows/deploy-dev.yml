@@ -1,0 +1,15 @@
+name: deploy-dev
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  trigger_deployment:
+    name:    Trigger deployment
+    runs-on: ubuntu-latest
+    steps:
+      name: Send HTTP request to webhook
+      run: >-
+        curl -X POST https://deploy.altlab.dev/korp-frontend-dev -d '{
+        "secret": "${{ secrets.DEPLOY_ALTLAB_DEV }}" }' -H 'Content-Type:
+        application/json'
