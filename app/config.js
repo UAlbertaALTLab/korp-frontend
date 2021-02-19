@@ -7,7 +7,7 @@ settings.hitsPerPageValues          = [25,50,75,100,500,1000];
 settings.enableBackendKwicDownload  = false;
 settings.enableFrontendKwicDownload = true;
 
-settings.languages       = [`sv`, `en`];
+settings.languages       = [`en`];
 settings.defaultLanguage = `en`;
 
 settings.downloadFormats = [
