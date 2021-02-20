@@ -10,6 +10,6 @@ jobs:
     steps:
       - name: Send HTTP request to webhook
         run: >-
-          curl -X POST https://deploy.altlab.dev/korp-frontend-prod -d '{
+          curl -X POST https://deploy.altlab.dev/korp-frontend-prod --fail -d '{
           "secret": "${{ secrets.DEPLOY_ALTLAB_PROD }}" }' -H 'Content-Type:
           application/json'
