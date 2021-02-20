@@ -10,7 +10,7 @@ An alternative to downloading a released bundle is to clone the repository:
 git clone https://github.com/spraakbanken/korp-frontend.git
 ```
 
-Be sure to use the `master`-branch for production environments.
+Be sure to use the `main`-branch for production environments.
 
 In this text Korp refers to the frontend only.
 
@@ -41,46 +41,46 @@ are all described in the documentation.
 - `modes/*mode.js`
 - `translations/*.json`
 
-(In short, a mode is a collection of corpora that may have different 
+(In short, a mode is a collection of corpora that may have different
   functionality and are described later).
 
 For more advanced use cases there is also the possibility to add scripts,
  styling and HTML-templates/snippets.
- 
+
  - `styles/`
  - `scripts/`
  - `views/`
- 
- Styles and scripts will be automatically loaded. 
- Files matching `views/*.html` can be loaded manually by requiring them 
- using the name `customtemplates`. The result will be a string containing 
- the (minified) HTML, for example, a template for an Angular 
+
+ Styles and scripts will be automatically loaded.
+ Files matching `views/*.html` can be loaded manually by requiring them
+ using the name `customtemplates`. The result will be a string containing
+ the (minified) HTML, for example, a template for an Angular
  directive: `template: require("customviews/my_view.html")`. If you are not
  writing any custom scripts (i.e. files in `scripts/`), this can be
   completely ignored.
 
 ### Content of `config.js`
 
-The main configuration file of Korp is `config.js`. In this file we have 
-configuration for where the backend is located, what features should be turned 
-on or off etc. Corpora configuration is done in the modes files. There is more 
+The main configuration file of Korp is `config.js`. In this file we have
+configuration for where the backend is located, what features should be turned
+on or off etc. Corpora configuration is done in the modes files. There is more
 information about that later in this document.
 
-All configuration parameters are added to a global `settings`-object. For example: 
+All configuration parameters are added to a global `settings`-object. For example:
 
 ```
 settings.defaultLanguage = "en"
 ```
 
-Available settings will be described in feature sections and there is also a 
+Available settings will be described in feature sections and there is also a
 [summary of all settings](#summary-settings). A good start could be to just
 copy `config.js` from this repository to your configuration directory.
 
 ### Content of `modes/common.js`
 
-After `config.js`, but before any mode configuration, `modes/common.js` is 
-loaded. This may include definitions which are used in several modes s.a. a set 
-of attributes. This helps to keep `config.js` clean. This file must export any 
+After `config.js`, but before any mode configuration, `modes/common.js` is
+loaded. This may include definitions which are used in several modes s.a. a set
+of attributes. This helps to keep `config.js` clean. This file must export any
 variables that can be used in a mode.
 
 ```
@@ -99,20 +99,20 @@ Now very `veryCommonAttributes` will be available in all mode-files.
 
 ### Localization
 
-In `app/translations` there are several files containing translations for 
+In `app/translations` there are several files containing translations for
 different parts of the application.
 
-Files prefixed with `locale` and controls translations are hard-coded into the 
-application and thus it should not be necessary to change these if only 
+Files prefixed with `locale` and controls translations are hard-coded into the
+application and thus it should not be necessary to change these if only
 customization is done. The files prefixed with  `corpora` however are
 translations of corpora attributes and values and must be replaced with data
-suitable for the specific set of corpora the Korp installation serves. The 
-files are JSON structures that for each language ties a __translation key__ 
+suitable for the specific set of corpora the Korp installation serves. The
+files are JSON structures that for each language ties a __translation key__
 to a particular __string__ in that language. You should start with empty corpora
-translation files and then add the translations as you add corpora. 
+translation files and then add the translations as you add corpora.
 
-The translations folder also contains Python script - `check_locale_files.py` - 
-that makes sure that each set of translation files has each translation key 
+The translations folder also contains Python script - `check_locale_files.py` -
+that makes sure that each set of translation files has each translation key
 present in all different languages.
 
 #### Adding Languages
@@ -146,10 +146,10 @@ Put the file in `app/translations/`.
 
 ## Modes
 
-Each Korp installation has a series of _Modes_ in the top left corner, which 
-are useful for presenting different faces of Korp that might have different 
+Each Korp installation has a series of _Modes_ in the top left corner, which
+are useful for presenting different faces of Korp that might have different
 layouts or functionality. In the Swedish version the parallel corpora have their
-own mode because their KWIC results don't mix particularly well with the 
+own mode because their KWIC results don't mix particularly well with the
 'normal' results.
 
 #### Adding modes
@@ -158,15 +158,15 @@ Relevant setting fields are `settings.visibleModes` and `settings.modeConfig`. T
 
     [
       {
-        localekey: "modern_texts", 
+        localekey: "modern_texts",
         mode: "default"
       },
       {
-        localekey: "parallel_texts", 
+        localekey: "parallel_texts",
         mode: "parallel"
       },
       {
-        localekey: "faroese_texts", 
+        localekey: "faroese_texts",
         mode: "faroe"
       }
     ]
@@ -221,17 +221,17 @@ The config file contains the corpora declaration, wherein the available corpora 
                   In the sidebar, the value will be split before formatted. When using compile / `groupby` on a "set" attribute in a statistics request, it will be added to `split`.
         - "url" - The value will be rendered as a link to the URL and possibly truncated if too long.
     * `pattern`: HTML snippet with placeholders for replacing values. Available is `key` (attribute name) and `value`. Also works for sets. Example: `'<p style="margin-left: 5px;"><%=val.toLowerCase()%></p>'`
-    * `display`: How to display attribute in sidebar. Currently only supported for sets and `expandList` (see below). In the future more ways to display might be added here. 
+    * `display`: How to display attribute in sidebar. Currently only supported for sets and `expandList` (see below). In the future more ways to display might be added here.
         * `expandList`: Render set as a list where the first element is visible and a button to show or hide the rest of the elements.
             * `splitValue`: Function to split up values if there are sets within the set. Example: `function(value) { return value.split(','); }`
-            * `searchKey`: If `display.expandList.internalSearch` is set to `true`, links will be rendered to search for the value in Korp, using this key in the CQP-expression. 
+            * `searchKey`: If `display.expandList.internalSearch` is set to `true`, links will be rendered to search for the value in Korp, using this key in the CQP-expression.
                            Omit to use same key as attribute name.
             * `joinValues`: Interleave this string with all values on the row.
             * `stringify`: Optional override of outer `stringify`.
             * `linkAllValues`: Should the `internalSearch` be enabled for all values or only the first one in the set?
-            * `internalSearch`: Alternative function to transform the attribute key and value to a CQP-expression. 
+            * `internalSearch`: Alternative function to transform the attribute key and value to a CQP-expression.
                               Example: `function(key,value) { '[' + key + '="' + val + '"]' }`
-    * `sidebarComponent`: If the `display` key above doesn't do enough, you can write a custom interactive component using `sidebarComponent.template` (an Angularjs template string) and `sidebarComponent.controller` (an Angularjs controller function). Useful for having e.g. a modal window pop up, or for rendering a small video player in the sidebar, or for anything else that isn't simple text or a link. `$scope.model` holds the value, so assigning to this variable will change the current CQP expression. See the `complemgram` and `compwf` implementation at the [Korp SB Config](https://github.com/spraakbanken/korp-frontend-sb/blob/dev/app/modes/common.js). 
+    * `sidebarComponent`: If the `display` key above doesn't do enough, you can write a custom interactive component using `sidebarComponent.template` (an Angularjs template string) and `sidebarComponent.controller` (an Angularjs controller function). Useful for having e.g. a modal window pop up, or for rendering a small video player in the sidebar, or for anything else that isn't simple text or a link. `$scope.model` holds the value, so assigning to this variable will change the current CQP expression. See the `complemgram` and `compwf` implementation at the [Korp SB Config](https://github.com/spraakbanken/korp-frontend-sb/blob/dev/app/modes/common.js).
     * `internalSearch`: `boolean`. Should the value be displayed as a link to a new Korp search? Only works for sets. Searches for CQP-expression: `[<attrName> contains "<regescape(attrValue)>"]`
     * `externalSearch`: Link with placeholder for replacing value. Example `https://spraakbanken.gu.se/karp/#?search=extended||and|sense|equals|<%= val %>`
     * `order`: Order of attribute in the sidebar. Attributes with a lower `order`-value will be placed over attributes with a higher `order`-value.
@@ -246,7 +246,7 @@ The config file contains the corpora declaration, wherein the available corpora 
 * `customAttributes`: creates fields in the sidebar that have no corresponding attribute in the backend. Useful for combining two different attributes. All settings concerning sidebar format for normal attributes apply in addition to:
     * `customType`: `"struct"` / `"pos"` - decides if the attribute should be grouped under word attributes or text attributes.
     * `pattern`: Same as pattern for normal attributes, but `struct_attrs` and `pos_attrs` also available. Example: `'<p style="margin-left: 5px;"><%=struct_attrs.text_title - struct_attrs.text_description%></p>'`
-* `readingMode`: If set, enables reading mode/text view for the 
+* `readingMode`: If set, enables reading mode/text view for the
    corpora. A link will appear in the sidebar and if clicked a new tab
    containg the text will be opened. This depends on your corpus having a
    structural attribute identifying the line in the KWIC (such as `sentence_id`
@@ -308,7 +308,7 @@ text field by setting `disableLemgramAutocomplete` to `false`.
 
 ### escaper
 
-`escaper` is a directive that takes the user's input and escapes any regexp characters before saving it to `scope.model`. 
+`escaper` is a directive that takes the user's input and escapes any regexp characters before saving it to `scope.model`.
 When the model changes it automatically de-escapes any regexp characters before showing the value to the user. Input must be saved to `scope.input` for it to work. Example: `<input ng-model="input" escaper>`
 
 ## Parallel Corpora
@@ -536,7 +536,7 @@ __corporafolders__ - Create a directory-structure in corpus chooser. Example:
     }
 
 __preselectedCorpora__ - An array of corpus (internal) names or folder names. Given corpora and corpora in folders will be selected on load. To select only a subfolder write `folder.subfolder`.
- 
+
 __newMapEnabled__ - See **Map**.
 
 __mapCenter__ - See **Map**.
@@ -574,7 +574,7 @@ Korp does runtime DOM manipulation when the user changes language. Using an Angu
 
 ## Map
 
-Modify the map with configuration, `scripts/map_controllers.coffee` or the Geokorp-component located in `components/geokorp`. Geokorp wraps [Leaflet][leaflet] and adds further functionality such as integration with Angular, marker clustering, marker styling and information when selecting a marker. 
+Modify the map with configuration, `scripts/map_controllers.coffee` or the Geokorp-component located in `components/geokorp`. Geokorp wraps [Leaflet][leaflet] and adds further functionality such as integration with Angular, marker clustering, marker styling and information when selecting a marker.
 
 ## Building a distribution
 

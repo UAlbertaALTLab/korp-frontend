@@ -3,7 +3,7 @@
 <p>Download the latest release from <a href="https://github.com/spraakbanken/korp-frontend/releases">Github</a>. The code is distributed under the <a href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 <p>An alternative to downloading a released bundle is to clone the repository:</p>
 <pre><code>git clone https://github.com/spraakbanken/korp-frontend.git</code></pre>
-<p>Be sure to use the <code>master</code>-branch for production environments.</p>
+<p>Be sure to use the <code>main</code>-branch for production environments.</p>
 <p>In this text Korp refers to the frontend only.</p>
 <h2 id="configuration">Configuration</h2>
 <p>In ideal cases, no changes needs to be done in Korp. Instead all configuration will reside in another directory. How to make the build system detect this directory and its contents will be described below.</p>
@@ -67,15 +67,15 @@ module.exports = {
 <p>Relevant setting fields are <code>settings.visibleModes</code> and <code>settings.modeConfig</code>. The former controls how many modes are visible in the header (the rest are hidden away in a menu). The latter looks like this:</p>
 <pre><code>[
   {
-    localekey: &quot;modern_texts&quot;, 
+    localekey: &quot;modern_texts&quot;,
     mode: &quot;default&quot;
   },
   {
-    localekey: &quot;parallel_texts&quot;, 
+    localekey: &quot;parallel_texts&quot;,
     mode: &quot;parallel&quot;
   },
   {
-    localekey: &quot;faroese_texts&quot;, 
+    localekey: &quot;faroese_texts&quot;,
     mode: &quot;faroe&quot;
   }
 ]</code></pre>
@@ -241,7 +241,7 @@ settings.corpora[&quot;testcorpus&quot;] = {
 <p>The <code>"_"</code> refers to the placement of the hit in the table order. The value for <code>rel</code> refers to a key in <code>settings.wordpictureTagset</code> looking like this:</p>
 <pre><code>settings.wordpictureTagset = {
     // the actual value for the pos-tag must be given in this object
-    pos_tag: &quot;vb&quot;,  
+    pos_tag: &quot;vb&quot;,
 
     subject: &quot;ss&quot;,
     object: &quot;obj&quot;,
