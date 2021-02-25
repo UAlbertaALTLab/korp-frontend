@@ -7,7 +7,7 @@ This repo contains the [University of Alberta Language Technology Lab][ALTLab]'s
 ## Getting started with developing Korp
 
 1. Install [yarn][yarn]
-  - Korp must be developed with `yarn` rather than `npm`.
+  - Korp must be developed with `yarn` rather than `npm`: `yarn install`
 
 1. Building Korp
   - install all dependencies: `yarn`
@@ -20,7 +20,7 @@ This repo contains the [University of Alberta Language Technology Lab][ALTLab]'s
 
 1. Running tests
   - run tests: `yarn test` or `yarn test:karma` or `yarn test:e2e`
-  - (tests currently depend on Språkbanken's setup; they will not pass locally)
+  - (tests currently depend on Språkbanken's setup; E2E tests will not pass locally)
 
 1. Deployment
   - `dev`: commits to `dev` are automatically deployed to `korp.altlab.dev` (see [deploy-dev.yml](https://github.com/UAlbertaALTLab/korp-frontend/blob/dev/.github/workflows/deploy-dev.yml))
