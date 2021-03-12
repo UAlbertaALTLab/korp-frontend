@@ -6,7 +6,7 @@ on:
 
 jobs:
 
-  setup:
+  deploy:
     runs-on: ubuntu-latest
     steps:
 
@@ -24,29 +24,15 @@ jobs:
           key:  ${{ hashFiles('**/package-lock.json') }}
           path: ~/.npm
 
-  build_app:
-    needs:   setup
-    runs-on: ubuntu-latest
-    steps:
-
       - name: install dependencies
+        if:   steps.cache.outputs.cache-hit != 'true'
         run:  yarn install
 
       - name: build app
         run:  yarn build
 
-  run_tests:
-    needs:   build_app
-    runs-on: ubuntu-latest
-    steps:
-
       - name: run unit tests
         run:  yarn test:karma
-
-  trigger_deployment:
-    needs:   run_tests
-    runs-on: ubuntu-latest
-    steps:
 
       - name: Send HTTP request to webhook
         run: >-
