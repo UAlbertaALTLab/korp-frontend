@@ -21,7 +21,7 @@ jobs:
       - name: cache Node modules
         uses: actions/cache@v2
         with:
-          key:  ${{ hashFiles('package-lock.json') }}
+          key:  ${{ hashFiles('yarn.lock') }}
           path: ~/.npm
 
       - name: install dependencies
