@@ -21,8 +21,8 @@ jobs:
       - name: cache Node modules
         uses: actions/cache@v2
         with:
+          key:  ${{ hashFiles('**/package-lock.json') }}
           path: ~/.npm
-          key: ${{ hashFiles('**/package-lock.json') }}
 
   build_app:
     needs:   setup
